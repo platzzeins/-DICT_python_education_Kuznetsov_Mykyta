@@ -1,11 +1,28 @@
-"""Variable for 'all' characters that are not allowed"""
-ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]*/+-_=',.`"
+def check_matrix(matrix1, matrix2):
+    """Checks if all values in matrix are numbers"""
+    if matrix2 == 0:
+        for _, m1val in enumerate(matrix1):
+            for k in range(len(m1val)):
+                if not m1val[k].isnumeric():
+                    return False
+        return True
+            
+    else:
+        for _, m1val in enumerate(matrix1):
+            for k in range(len(m1val)):
+                if not m1val[k].isnumeric():
+                    return False
+        for _, m2val in enumerate(matrix2):
+            for k in range(len(m2val)):
+                if not m2val[k].isnumeric():
+                    return False
+        return True
+
 
 
 def addition(matrix_1, matrix_2, solved_matrix):
     """Function to add two matrix"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix_1)) if elem in ALPHABET]
-    if check:
+    if check_matrix(matrix_1, matrix_2):
         return False
     for i, val in enumerate(matrix_1):
         for k in range(len(val)):
@@ -14,8 +31,7 @@ def addition(matrix_1, matrix_2, solved_matrix):
 
 def multiplication_by_constant(constant, matrix_1, solved_matrix):
     """Mulptiplication by a constant"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix_1)) if elem in ALPHABET]
-    if check:
+    if check_matrix(matrix_1, 0):
         print("You typed letters")
         return False
     for i, val in enumerate(matrix_1):
@@ -25,9 +41,7 @@ def multiplication_by_constant(constant, matrix_1, solved_matrix):
 
 def multiplication(matrix_1, matrix_2):
     """Function to multiply two matrix"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix_1)) if elem in ALPHABET]
-    check_s = [elem for elem in (''.join(''.join(x) for x in matrix_2)) if elem in ALPHABET]
-    if check or check_s:
+    if check_matrix(matrix_1, matrix_2):
         return False
     m_1_len = len(matrix_1)
     m_2_len = len(matrix_2)
@@ -43,8 +57,7 @@ def multiplication(matrix_1, matrix_2):
 
 def transpose(argument, matrix_1):
     """Function to transpose matrix"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix_1)) if elem in ALPHABET]
-    if check:
+    if check_matrix(matrix_1, 0):
         return False
     result = []
     match argument:
@@ -71,8 +84,7 @@ def minor(matrix, i, j):
 
 def determinant_count(matrix):
     """Starts process of finding determinant of matrix"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix)) if elem in ALPHABET]
-    if check:
+    if check_matrix(matrix, 0):
         return False
     def det2(matrix):
         return int(matrix[0][0]) * int(matrix[1][1]) - int(matrix[0][1]) * int(matrix[1][0])
@@ -91,8 +103,7 @@ def determinant_count(matrix):
 
 def inverse(matrix):
     """Making inversed matrix"""
-    check = [elem for elem in (''.join(''.join(x) for x in matrix)) if elem in ALPHABET]
-    if check:
+    if check_matrix(matrix, 0):
         return False
     result = []
     for i in range(len(matrix)):
