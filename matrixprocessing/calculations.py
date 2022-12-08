@@ -22,7 +22,8 @@ def check_matrix(matrix1, matrix2):
 
 def addition(matrix_1, matrix_2, solved_matrix):
     """Function to add two matrix"""
-    if check_matrix(matrix_1, matrix_2):
+    if not check_matrix(matrix_1, matrix_2):
+        print("Enter only numbers")
         return False
     for i, val in enumerate(matrix_1):
         for k in range(len(val)):
@@ -31,7 +32,8 @@ def addition(matrix_1, matrix_2, solved_matrix):
 
 def multiplication_by_constant(constant, matrix_1, solved_matrix):
     """Mulptiplication by a constant"""
-    if check_matrix(matrix_1, 0):
+    if not check_matrix(matrix_1, 0):
+        print("Enter only numbers")
         print("You typed letters")
         return False
     for i, val in enumerate(matrix_1):
@@ -41,7 +43,8 @@ def multiplication_by_constant(constant, matrix_1, solved_matrix):
 
 def multiplication(matrix_1, matrix_2):
     """Function to multiply two matrix"""
-    if check_matrix(matrix_1, matrix_2):
+    if not check_matrix(matrix_1, matrix_2):
+        print("Enter only numbers")
         return False
     m_1_len = len(matrix_1)
     m_2_len = len(matrix_2)
@@ -57,7 +60,8 @@ def multiplication(matrix_1, matrix_2):
 
 def transpose(argument, matrix_1):
     """Function to transpose matrix"""
-    if check_matrix(matrix_1, 0):
+    if not check_matrix(matrix_1, 0):
+        print("Enter only numbers")
         return False
     result = []
     match argument:
@@ -84,7 +88,8 @@ def minor(matrix, i, j):
 
 def determinant_count(matrix):
     """Starts process of finding determinant of matrix"""
-    if check_matrix(matrix, 0):
+    if notcheck_matrix(matrix, 0):
+        print("Enter only numbers")
         return False
     def det2(matrix):
         return int(matrix[0][0]) * int(matrix[1][1]) - int(matrix[0][1]) * int(matrix[1][0])
@@ -103,7 +108,8 @@ def determinant_count(matrix):
 
 def inverse(matrix):
     """Making inversed matrix"""
-    if check_matrix(matrix, 0):
+    if not check_matrix(matrix, 0):
+        print("Enter only numbers")
         return False
     result = []
     for i in range(len(matrix)):
