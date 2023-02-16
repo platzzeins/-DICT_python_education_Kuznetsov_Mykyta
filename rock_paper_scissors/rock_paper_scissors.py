@@ -13,21 +13,25 @@ class game():
         self.botOption = random.choice(options)
 
         if self.userOption.__eq__(self.botOption):
-            print(f"Bot chose {self.botOption}")
-            print("Draw")
+            print(f"There is a draw ({self.botOption})")
         for i, j in combinations.items():
             if self.userOption == i and self.botOption == j:
-                print(f"Bot chose {self.botOption}")
-                print("First player won!")
+                print(f"Well done. The computer chose {self.botOption} and failed ")
                 break
             elif self.botOption == i and self.userOption == j:
-                print(f"Bot chose {self.botOption}")
-                print("Second player won!")
+                print(f"Sorry, but the computer chose {self.botOption}")
                 break
 
 
 if __name__ == "__main__":
     while True:
         userChoice = input("Input your option ")
-        new = game(userChoice)
-        new.actual_game()
+        if userChoice in options:
+            new = game(userChoice)
+            new.actual_game()
+        elif userChoice == "!exit":
+            print("Bye!")
+            break
+        else:
+            print("Invalid input")
+
