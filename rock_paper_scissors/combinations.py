@@ -14,7 +14,7 @@ combinationsExtended = {
     "devil": ["lightning", "gun", "rock", "fire", "scissors", "snake", "human"],
     "lightning": ["gun", "rock", "fire", "scissors", "snake", "human", "tree"],
     "gun": ["rock", "fire", "scissors", "snake", "human", "tree", "wolf"]
-    }
+}
 
 combinationsUsual = {
     "rock": "scissors",
